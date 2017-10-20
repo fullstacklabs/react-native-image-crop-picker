@@ -740,10 +740,12 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
             }
             break;
         case CAMERA:
-            UIViewController *topViewController = controller.presentingViewController.presentingViewController;
-            [self addAnimationToLayer:topViewController];
-            [topViewController dismissViewControllerAnimated:self.animated completion:completion];
-            break;
+            {
+                UIViewController *topViewController = controller.presentingViewController.presentingViewController;
+                [self addAnimationToLayer:topViewController];
+                [topViewController dismissViewControllerAnimated:self.animated completion:completion];
+                break;
+            }
     }
 }
 
